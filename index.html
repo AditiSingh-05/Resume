@@ -1,0 +1,459 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Aditi Singh - Resume</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background: linear-gradient(135deg, #08175a 0%, #201f20 100%);
+            min-height: 100vh;
+            padding: 20px;
+        }
+
+        .resume-container {
+            max-width: 900px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 20px;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.15);
+            overflow: hidden;
+            position: relative;
+        }
+
+        .resume-container::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 6px;
+            background: linear-gradient(90deg, #08175a, #201f20, #1a237e, #283593);
+        }
+
+        .header {
+            background: linear-gradient(135deg, #08175a 0%, #201f20 100%);
+            color: white;
+            padding: 40px;
+            text-align: center;
+            position: relative;
+        }
+
+        .header::after {
+            content: '';
+            position: absolute;
+            bottom: -20px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 0;
+            height: 0;
+            border-left: 20px solid transparent;
+            border-right: 20px solid transparent;
+            border-top: 20px solid #08175a;
+        }
+
+        .profile-img {
+            width: 120px;
+            height: 120px;
+            border-radius: 50%;
+            border: 5px solid rgba(255, 255, 255, 0.3);
+            margin: 0 auto 20px;
+            background: rgba(255, 255, 255, 0.1);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 48px;
+            color: white;
+        }
+
+        .name {
+            font-size: 2.5em;
+            font-weight: 700;
+            margin-bottom: 10px;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+        }
+
+        .title {
+            font-size: 1.3em;
+            opacity: 0.9;
+            font-weight: 300;
+        }
+
+        .contact-info {
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            margin-top: 20px;
+            flex-wrap: wrap;
+        }
+
+        .contact-item {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            opacity: 0.9;
+        }
+
+        .main-content {
+            display: grid;
+            grid-template-columns: 1fr 2fr;
+            gap: 40px;
+            padding: 40px;
+        }
+
+        .sidebar {
+            background: #e3eafc;
+            padding: 30px;
+            border-radius: 15px;
+            height: fit-content;
+        }
+
+        .content {
+            padding: 0;
+        }
+
+        .section {
+            margin-bottom: 35px;
+        }
+
+        .section-title {
+            font-size: 1.4em;
+            font-weight: 700;
+            color: #08175a;
+            margin-bottom: 20px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            position: relative;
+        }
+
+        .section-title::after {
+            content: '';
+            flex: 1;
+            height: 2px;
+            background: linear-gradient(135deg, #08175a, #201f20);
+        }
+
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 20px;
+            margin-top: 20px;
+        }
+
+        .skill-card {
+            background: white;
+            padding: 20px;
+            border-radius: 12px;
+            box-shadow: 0 5px 15px rgba(102, 126, 234, 0.1);
+            border-left: 4px solid #08175a;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .skill-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(102, 126, 234, 0.2);
+        }
+
+        .skill-title {
+            font-weight: 600;
+            color: #08175a;
+            margin-bottom: 10px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .skill-level {
+            background: #e3eafc;
+            border-radius: 10px;
+            height: 8px;
+            overflow: hidden;
+            margin-top: 10px;
+        }
+
+        .skill-progress {
+            height: 100%;
+            background: linear-gradient(90deg, #08175a, #201f20);
+            border-radius: 10px;
+            transition: width 0.3s ease;
+        }
+
+        .education-item, .project-item {
+            background: white;
+            padding: 25px;
+            border-radius: 12px;
+            margin-bottom: 20px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
+            border-left: 4px solid #08175a;
+            position: relative;
+        }
+
+        .education-item::before, .project-item::before {
+            content: '';
+            position: absolute;
+            left: -8px;
+            top: 25px;
+            width: 12px;
+            height: 12px;
+            background: #08175a;
+            border-radius: 50%;
+            box-shadow: 0 0 0 4px white;
+        }
+
+        .education-title, .project-title {
+            font-weight: 700;
+            color: #333;
+            margin-bottom: 8px;
+            font-size: 1.1em;
+        }
+
+        .education-school, .project-tech {
+            color: #08175a;
+            font-weight: 600;
+            margin-bottom: 5px;
+        }
+
+        .education-grade {
+            background: linear-gradient(135deg, #08175a, #201f20);
+            color: white;
+            padding: 5px 15px;
+            border-radius: 20px;
+            font-size: 0.9em;
+            font-weight: 600;
+            display: inline-block;
+            margin-top: 10px;
+        }
+
+        .project-placeholder {
+            color: #999;
+            font-style: italic;
+            border: 2px dashed #ddd;
+            padding: 20px;
+            text-align: center;
+            border-radius: 8px;
+            margin-bottom: 15px;
+        }
+
+        .achievement-badge {
+            background: linear-gradient(135deg, #f093fb, #f5576c);
+            color: white;
+            padding: 8px 16px;
+            border-radius: 25px;
+            font-size: 0.85em;
+            font-weight: 600;
+            display: inline-block;
+            margin: 5px 5px 5px 0;
+        }
+
+        @media (max-width: 768px) {
+            .main-content {
+                grid-template-columns: 1fr;
+                gap: 20px;
+                padding: 20px;
+            }
+            
+            .contact-info {
+                flex-direction: column;
+                gap: 15px;
+            }
+            
+            .skills-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .name {
+                font-size: 2em;
+            }
+        }
+
+        .highlight {
+            background: linear-gradient(120deg, #1a237e 0%, #283593 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            font-weight: 700;
+        }
+    </style>
+</head>
+<body>
+    <div class="resume-container">
+        <header class="header">
+            <div class="profile-img">
+                <img src = "images/image.png" alt = "Aditi Singh" style = "width : 100%; height : 100%; object-fit : cover; border-radius : 50%;" />
+            </div>
+            <h1 class="name">Aditi Singh</h1>
+            <p class="title">Full-Stack Developer & UI/UX Designer</p>
+            <div class="contact-info">
+                <div class="contact-item">
+                    <i class="fas fa-envelope"></i>
+                    <span>aditisingh152005@gmail.com</span>
+                </div>
+                <div class="contact-item">
+                    <i class="fas fa-phone"></i>
+                    <span>+91 6307817042</span>
+                </div>
+                <div class="contact-item">
+                    <i class="fab fa-linkedin" style="color:#4da6ff;"></i>
+                    <a href="https://www.linkedin.com/in/aditi-singh-3b18a3329" target="_blank" style="color:#4da6ff; text-decoration:none; font-weight:600;">LinkedIn</a>
+                </div>
+                <div class="contact-item">
+                    <i class="fab fa-github" style="color:#fff;"></i>
+                    <a href="https://github.com/AditiSingh-05" target="_blank" style="color:#fff; text-decoration:none; font-weight:600;">GitHub</a>
+                </div>
+            </div>
+        </header>
+
+        <div class="main-content">
+            <aside class="sidebar">
+                <section class="section">
+                    <h2 class="section-title">
+                        <i class="fas fa-graduation-cap"></i>
+                        Education
+                    </h2>
+                    <div class="education-item">
+                        <h3 class="education-title">Bachelor of Technology</h3>
+                        <p class="education-school">KIET University</p>
+                        <p>Computer Science Engineering with Artificial Intelligence</p>
+                        <p>2nd Year (2024-2827)</p>
+                        <span class="education-grade">Current CGPA: 8.84</span>
+                    </div>
+                    <div class="education-item">
+                        <h3 class="education-title">Higher Secondary (12th)</h3>
+                        <p class="education-school">CBSE Board</p>
+                        <span class="education-grade">90%</span>
+                    </div>
+                    <div class="education-item">
+                        <h3 class="education-title">Secondary (10th)</h3>
+                        <p class="education-school">CBSE Board</p>
+                        <span class="education-grade">10.0 CGPA</span>
+                    </div>
+                </section>
+
+                <section class="section">
+                    <h2 class="section-title">
+                        <i class="fas fa-trophy"></i>
+                        Achievements
+                    </h2>
+                    <div class="achievement-badge">🏆 Perfect 10 CGPA in High School</div>
+                    <div class="achievement-badge">📚 90% in Higher Secondary</div>
+                    <div class="achievement-badge">💻 Tech Enthusiast</div>
+                    <div class="achievement-badge">🎨 Creative Designer</div>
+                </section>
+            </aside>
+
+            <main class="content">
+                <section class="section">
+                    <h2 class="section-title">
+                        <i class="fas fa-code"></i>
+                        Technical Skills
+                    </h2>
+                    <div class="skills-grid">
+                        <div class="skill-card">
+                            <div class="skill-title">
+                                <i class="fab fa-android"></i>
+                                Android Development
+                            </div>
+                            <p>Native Android apps with Kotlin/Java, Android Studio, Firebase integration, Springboot, REST API,<br>Currently working on Flutter</p>
+                            <div class="skill-level">
+                                <div class="skill-progress" style="width: 85%"></div>
+                            </div>
+                        </div>
+                        <div class="skill-card">
+                            <div class="skill-title">
+                                <i class="fas fa-mobile-alt"></i>
+                                Dsa Journey
+                            </div>
+                            <p>200+ Questions on Leetcode in java</p>
+                            <div class="skill-level">
+                                <div class="skill-progress" style="width: 80%"></div>
+                            </div>
+                        </div>
+                        <div class="skill-card">
+                            <div class="skill-title">
+                                <i class="fas fa-globe"></i>
+                                Git and Github
+                            </div>
+                            <p>Proficient in version control with Git and collaborative workflows on GitHub</p>
+                            <div class="skill-level">
+                                <div class="skill-progress" style="width: 90%"></div>
+                            </div>
+                        </div>
+                        <div class="skill-card">
+                            <div class="skill-title">
+                                <i class="fas fa-palette"></i>
+                                UI/UX Design
+                            </div>
+                            <p>User-centered design with Figma, Canva and prototyping</p>
+                            <div class="skill-level">
+                                <div class="skill-progress" style="width: 88%"></div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+
+                <section class="section">
+                    <h2 class="section-title">
+                        <i class="fas fa-project-diagram"></i>
+                        Featured Projects
+                    </h2>
+                    
+                    <div class="project-item">
+                        <h3 class="project-title">TeamNet</h3>
+                        <p class="project-tech">Jetpack Compose, Firebase, Google Authentication</p>
+                        <div class="project-placeholder">
+                            Developed a student collaboration app with task management, real-time chat, 
+                            and project tracking; implemented using Jetpack Compose, Firebase overcame challenges in 
+                            team coordination and delivered improved productivity
+                            //add playstore link
+                            <a href="https://play.google.com/store/apps/details?id=com.bitversestudio.teamnet" class="project-link" target="_blank">View on Play Store</a>
+                        </div>
+                    </div>
+
+                    <div class="project-item">
+                        <h3 class="project-title">Skill Sync</h3>
+                        <p class="project-tech">Jetpack Compose, Springboot, WebSocket,Rest APIs</p>
+                        <div class="project-placeholder">
+                            Currently developing a real-time skill-sharing platform connecting learners and experts on a micro level; 
+                            implemented using Jetpack Compose, Springboot, WebSocket, and Rest APIs, overcame challenges in 
+                            real-time communication and delivered a seamless user experience.
+                        </div>
+                    </div>
+
+                    <div class="project-item">
+                        <h3 class="project-title">ProjectHub</h3>
+                        <p class="project-tech">Jetpack Compose, Firebase</p>
+                        <div class="project-placeholder">
+                            Contributed in a team project of two to develop a freelancing platform connecting clients and freelancers;
+                            implemented using Jetpack Compose and Firebase, overcame challenges in finding work to do for college students.
+                        </div>
+                    </div>
+                </section>
+
+                <section class="section">
+                    <h2 class="section-title">
+                        <i class="fas fa-lightbulb"></i>
+                        Summary
+                    </h2>
+                    <p style="background: white; padding: 25px; border-radius: 12px; box-shadow: 0 5px 15px rgba(0,0,0,0.08); line-height: 1.8;">
+                        Passionate and dedicated <span class="highlight">2nd-year Computer Science student</span> at KIET University with exceptional academic performance and strong technical expertise. Experienced in <span class="highlight">Android and app development and increasing proficiency in Flutter</span>,skilled in creating intuitive user experiences through UI/UX design.
+                        <br><br>
+                        With a proven track record of academic excellence (10.0 CGPA in high school, 90% in higher secondary), I bring both technical competency and creative problem-solving skills to development projects. Eager to contribute to innovative projects and grow as a versatile developer in a dynamic team environment.
+                    </p>
+                </section>
+            </main>
+        </div>
+    </div>
+</body>
+</html>
